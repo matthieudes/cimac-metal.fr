@@ -46,11 +46,44 @@ const routes = [
       title: 'Mentions Légales | SARL Cimac',
       description: 'Mentions légales de SARL Cimac à Saint-Chamond 42400, entreprise de chaudronnerie et métallerie.'
     }
-  }
+  },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('@/pages/PageErreur.vue') }
 ]
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // Si l'utilisateur clique sur "Précédent" ou "Suivant" dans son navigateur,
+    // on le remet exactement là où il était (meilleure expérience utilisateur)
+    if (savedPosition) {
+      return savedPosition;
+    } 
+    // Sinon, pour tout nouveau clic sur un lien, on remonte tout en haut !
+    else {
+      return { top: 0 }; // Utilisez { x: 0, y: 0 } si vous êtes sur Vue 2
+    }
+  }
 })
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title;
+  }
+
+  if (to.meta.description) {
+    let metaDescription = document.querySelector('meta[name="description"]');
+    
+    // Si la balise n'existe pas dans le index.html de base, on la crée
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.name = 'description';
+      document.head.appendChild(metaDescription);
+    }
+    
+    // On met à jour le contenu avec celui de votre route
+    metaDescription.content = to.meta.description;
+  }
+
+  next(); // Très important pour autoriser le changement de page !
+});
 
 export default router

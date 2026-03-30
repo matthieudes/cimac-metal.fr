@@ -1,17 +1,21 @@
 <script setup>
-import ActionsBoutons from '@/components/ActionsBoutons.vue';
-import imgMif from '@/assets/madeInFrance.webp'
+import ActionsBoutons from '@/components/HomeComponents/ActionsBoutons.vue';
+import imgMif from '@/assets/AccueilAssets/madeInFrance.webp'
 </script>
 <template>
     <section class="video">
         <video 
         autoplay
         loop
+        muted
         playsinline
         class="videolaser">
-            <source src="@/assets/laser480p.webm" type="video/webm" />
+            <source src="@/assets/AccueilAssets/videoAccueil.mp4" type="video/mp4" />
             Votre navigateur ne supporte pas la vidéo.
         </video>
+              
+        <h1 class="video-title">CIMAC : <br>Découpe laser 3D à Saint-Chamond</h1>
+
     </section>
     
     
@@ -23,7 +27,7 @@ import imgMif from '@/assets/madeInFrance.webp'
       <div class="mif-container">
         <div class="mif-text">
           <h3>
-            Choisir Cimac pour vos découpes laser de tube c’est choisir une PME
+            Choisir Cimac pour vos découpes laser de tube ou autre type de profil c’est choisir une PME
             chaudronnerie/métallerie française
           </h3>
         </div>
@@ -38,25 +42,52 @@ import imgMif from '@/assets/madeInFrance.webp'
 
 <style scoped>
 
-
-/*.videoText {
-  position: relative;
-  z-index: 2;
-  margin-left: 1rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  color: white;
-  
-}*/
 .video {
   position: relative;
   width: auto;
-  height: 60vh;
+  height: 55vh;
   overflow: hidden;
 }
+.video-title {
+  position: absolute;
+  bottom: 15%; 
+  left: 5vw;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 3rem; 
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  max-width: 900px;
+  margin: 0;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.3s;
+}
 
+.video-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 5px;
+  background: #ffffff; 
+  margin-top: 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .videolaser {
   position: absolute;
@@ -65,7 +96,7 @@ import imgMif from '@/assets/madeInFrance.webp'
   width: 100%;
   height: 140%;
   object-fit: cover;
-  object-position: 50% 30%;
+  object-position: 50% 25%;
   transform: translate(-50%, -50%);
 }
 
@@ -85,10 +116,7 @@ import imgMif from '@/assets/madeInFrance.webp'
 .made-in-france {
   padding: 5rem 5vw;
   margin-top: 6rem;
-
-  /* Fond neutre légèrement contrasté */
   background: linear-gradient(135deg, #f0f0f0, #e6e6e6);
-
   display: flex;
   justify-content: center;
 }
@@ -127,29 +155,45 @@ import imgMif from '@/assets/madeInFrance.webp'
 }
 
 .mif-image img {
-  height: 12rem; /* image plus grande */
+  height: 12rem;
   object-fit: contain;
 }
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .mif-container {
-    flex-direction: column;
-    text-align: center;
+
+@media (max-width: 900px) {
+  .video-title{
+    bottom: 20%;
+  }
+  .actions-buttons {
+    gap: 2rem; 
+    flex-wrap: wrap; 
   }
 
-  .mif-image img {
-    height: 80px;
+  .action-card {
+    width: 150px;
   }
 }
 
 @media (max-width: 768px) {
-  
   .videolaser{
     height: 70vh;
   }
-}
+  .video::before {
+    height: 84%;
+  }
 
-@media (max-width: 768px) {
+  .video-title {
+    font-size: 1.8rem;
+    left: 1.5rem;
+    max-width: 85%;
+    letter-spacing: 0;
+  }
+  
+  .video-title::after {
+    width: 50px;
+    height: 4px;
+    margin-top: 15px;
+  }
+
   .made-in-france {
     padding: 2.5rem 1.5rem;
   }
@@ -168,4 +212,30 @@ import imgMif from '@/assets/madeInFrance.webp'
     margin-top: 1rem;
   }
 }
+
+@media (max-width: 600px) {
+  .actions-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .action-card {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: auto; 
+    height: 100px;
+  }
+  
+  .action-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  .action-card img {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 </style>

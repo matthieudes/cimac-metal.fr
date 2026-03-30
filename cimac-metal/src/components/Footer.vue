@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import logo from '@/assets/LogoCimacSansBg.png'
+import logo from '@/assets/Logo/LogoCimacSansBg.png'
 
 const year = computed(() => new Date().getFullYear())
 </script>
@@ -15,6 +15,7 @@ const year = computed(() => new Date().getFullYear())
 
       <nav class="footer-nav">
         <RouterLink to="/">Accueil</RouterLink>
+        <RouterLink to="/laser">Découpe Laser</RouterLink>
         <RouterLink to="/galerie">Galerie</RouterLink>
         <RouterLink to="/contact">Contact</RouterLink>
       </nav>
@@ -25,7 +26,7 @@ const year = computed(() => new Date().getFullYear())
       <span>
         © {{ year }} – Cimac - MD – Tous droits réservés
       </span>
-      <RouterLink to="/mentions-legales" class="legal">
+      <RouterLink to="/mentionslegales" class="legal">
         Mentions légales
       </RouterLink>
     </div>
@@ -82,7 +83,7 @@ const year = computed(() => new Date().getFullYear())
   width: 0%;
   height: 2px;
   background: #4ea1ff;
-  transition: width 0.3s ease;
+  transition: width 0.4s ease;
 }
 
 .footer-nav a:hover {

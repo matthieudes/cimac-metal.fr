@@ -1,32 +1,27 @@
 <script setup>
-import SpecTable from '@/components/SpecTable.vue';
+import SpecTable from '@/components/LaserComponent/SpecTable.vue';
 </script>
 <template>
     <div class="laser-header">
       <div class="laserHeader-content">
           <h1>Découpe Laser 3D</h1>
-          <p>Précision, rapidité et qualité pour tous vos projets de métallerie.</p>
+          <p>Précision, rapidité et qualité pour tous vos projets de métallerie, construction industrielle et charpente.</p>
       </div>
     </div>
     <section class="laser-presentation">
       <h2>Des découpes laser précises et sur mesure</h2>
       <div class="container">
         
-        <!-- COLONNE GAUCHE : TEXTE -->
         <div class="text-column">
           
-          <!-- Partie Haute (Titre + Texte gris) -->
           <div class="text-top">
               <p>
-                  Notre entreprise est équipée d’une machine de découpe laser 3D de tubes, 
-                  équivalente aux équipements haut de gamme du marché. Nous réalisons la 
-                  découpe laser de tubes acier, inox et aluminium, sur profils ronds, carrés, 
-                  rectangulaires ou spécifiques, avec une précision maximale et des finitions 
-                  impeccables.
+                  Notre entreprise est équipée d’une machine de découpe laser 3D pour tubes et différents types de profilés. 
+                  Nous réalisons la découpe laser de tubes acier, inox et aluminium, sur profils ronds, carrés, 
+                  rectangulaires ou spécifiques.
               </p>
           </div>
 
-          <!-- Partie Basse (Bloc Bleu Biseauté) -->
           <div class="blue-block">
               <p>
                   Notre service s'adresse aussi bien aux professionnels (industrie, bâtiment, 
@@ -38,9 +33,8 @@ import SpecTable from '@/components/SpecTable.vue';
 
         </div>
 
-        <!-- COLONNE DROITE : IMAGE MACHINE -->
         <div class="image-column">
-              <img src="@/assets/laserPhoto.webp" alt="Machine Découpe Laser 3D" />
+              <img src="@/assets/LaserAssets/laserPhoto.webp" alt="Machine Découpe Laser 3D" loading="lazy"/>
         </div>
 
       </div>
@@ -49,14 +43,14 @@ import SpecTable from '@/components/SpecTable.vue';
       <div class="plans-border-container">
         
         <div class="plans-image">
-          <img src="@/assets/piece.jpg" alt="Bureau d'étude découpe laser" />
+          <img src="@/assets/GalerieAssets/14-pieceLaser.jpg" alt="Bureau d'étude découpe laser" />
         </div>
 
         <div class="plans-text">
           <h3>Découpe sur mesure à partir de vos plans</h3>
           <p>
             Nous réalisons vos découpes sur mesure directement à partir des plans fournis par le client, 
-            en garantissant une fidélité parfaite entre le dessin et la pièce finale. Chaque projet est 
+            en garantissant une fidélité entre le dessin et la pièce finale. Chaque projet est 
             étudié avec soin afin d’assurer précision, qualité et respect des dimensions, que ce soit 
             pour une pièce unique, un prototype ou une petite série.
           </p>
@@ -75,7 +69,7 @@ import SpecTable from '@/components/SpecTable.vue';
 
 <style scoped>
 .laser-header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('@/assets/DessinDelaser.svg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('@/assets/LaserAssets/DessinDelaser.svg');
   height: 400px;
   background-size: cover;
   background-position: center;
@@ -190,17 +184,16 @@ import SpecTable from '@/components/SpecTable.vue';
   clip-path: polygon(12% 0px, 100% 0px, 100% 100%, 12% 100.00%, 0% 50%);
 }
 
-/* --- SECTION PLANS (CADRE BLEU) --- */
 .plans-section {
   padding: 30px 20px;
-  background-color: #f9f9f9;
   display: flex;
   justify-content: center;
   max-height: 40vh;
+  min-height: 500px;
 }
 
 .plans-border-container {
-  max-width: 1400px;
+  max-width: 1350px;
   width: 100%;
   background-color: white;
   display: flex;
@@ -253,7 +246,8 @@ import SpecTable from '@/components/SpecTable.vue';
   margin-bottom: 10px;
 }
 
-/* --- RESPONSIVE GENERAL --- */
+/* ============================================= RESPONSIVE ============================================== */
+
 @media (max-width: 900px) {
   .plans-section {
     max-height: none;
@@ -270,7 +264,7 @@ import SpecTable from '@/components/SpecTable.vue';
   .plans-image {
     flex: none;
     width: 100%;
-    height: 250px;
+    height: 400px;
   }
 
   .plans-image img {
@@ -286,7 +280,6 @@ import SpecTable from '@/components/SpecTable.vue';
     text-align: center;
   }
 
-  /* 2. SECTION PRESENTATION (Haut de page) */
   .laser-presentation .container {
     flex-direction: column;
     padding: 0 20px;
@@ -298,10 +291,10 @@ import SpecTable from '@/components/SpecTable.vue';
   }
 
   .blue-block {
-    margin-right: 0; /* On remet le bloc droit */
-    clip-path: none; /* On enlève la forme biseautée */
+    margin-right: 0; 
+    clip-path: none; 
     width: 88%;
-    border-radius: 8px; /* Joli arrondi à la place */
+    border-radius: 8px;
     padding: 20px;
   }
 
@@ -314,13 +307,11 @@ import SpecTable from '@/components/SpecTable.vue';
   .image-column img {
     width: 100%;
     max-width: 100%;
-    /* On enlève la forme complexe de l'image machine */
     clip-path: none; 
     border-radius: 8px;
   }
 }
 
-/* --- MOBILE TRES PETIT (Téléphone portrait) --- */
 @media (max-width: 768px) {
   .laser-header {
     height: 300px;
@@ -333,18 +324,6 @@ import SpecTable from '@/components/SpecTable.vue';
   .laserHeader-content p {
     font-size: 1rem;
     padding: 0 10px;
-  }
-}
-
-
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-  .laser-header {
-    height: 300px; /* Moins haut sur mobile */
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
   }
 }
 </style>
