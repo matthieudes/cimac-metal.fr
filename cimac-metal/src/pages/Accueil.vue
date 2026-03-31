@@ -10,7 +10,7 @@ import imgMif from '@/assets/AccueilAssets/madeInFrance.webp'
         muted
         playsinline
         class="videolaser">
-            <source src="@/assets/AccueilAssets/videoAccueil.mp4" type="video/mp4" />
+            <source src="@/assets/AccueilAssets/videoAccueil2.mp4" type="video/mp4" />
             Votre navigateur ne supporte pas la vidéo.
         </video>
               
