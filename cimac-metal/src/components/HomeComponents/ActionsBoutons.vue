@@ -21,7 +21,7 @@ const actions = ref([
         {
         id: 2,
         title: "Notre Expertise",
-        text: "Nous avons une expertise de plus de 30ans dans la chaudronnerie et la métallerie et nous proposons maintenant nos services de découpe laser à nos clients. Nous sommes fiers de notre savoir-faire et de notre capacité à répondre aux besoins spécifiques de chaque projet.",
+        text: "Nous avons une expertise de plus de 30 ans dans la chaudronnerie et la métallerie et nous proposons maintenant nos services de découpe laser à nos clients. Nous sommes fiers de notre savoir-faire et de notre capacité à répondre aux besoins spécifiques de chaque projet.",
         panelImage: pieceLaser,
         buttonLink: '/Galerie'
         },
