@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onUnmounted, watch } from 'vue';
+import { ref, computed,onMounted, onUnmounted, watch } from 'vue';
 import GalleryToggle from '@/components/GalleryComponents/GalleryToggle.vue';
 import GalleryGrid from '@/components/GalleryComponents/GalleryGrid.vue';
 import GalleryPagination from '@/components/GalleryComponents/GalleryPagination.vue';
@@ -78,68 +78,22 @@ const prevGridPage = () => {
 };
 
 const handleKey = (e) => {
-  if (e.key === "ArrowRight") nextImage();
-  if (e.key === "ArrowLeft") prevImage();
-  if (e.key === "Escape") closeImage();
+  if (selectedIndex.value !== null) {
+    if (e.key === "ArrowRight") nextMedia();
+    if (e.key === "ArrowLeft") prevMedia();
+    if (e.key === "Escape") closeModal();
+  }
 };
-
-const openImage = (index) => {
-  selectedIndex.value = index;
-  document.body.style.overflow = "hidden";
+// On active l'écouteur quand la page est chargée
+onMounted(() => {
   window.addEventListener("keydown", handleKey);
-};
-
-const closeImage = () => {
-  selectedIndex.value = null;
-  document.body.style.overflow = "auto";
-  window.removeEventListener("keydown", handleKey);
-};
-
-const nextImage = () => {
-  if (selectedIndex.value === null) return;
-  selectedIndex.value = (selectedIndex.value + 1) % images.value.length;
-};
-
-const prevImage = () => {
-  if (selectedIndex.value === null) return;
-  selectedIndex.value = (selectedIndex.value - 1 + images.value.length) % images.value.length;
-};
-
-const goToImage = (index) => {
-  selectedIndex.value = index;
-};
-
-onUnmounted(() => {
-  window.removeEventListener("keydown", handleKey);
-  document.body.style.overflow = "auto";
 });
 
-// --- Gestion de la modale vidéo ---
-const selectedVideoIndex = ref(null); // null = modale fermée
+// IMPORTANT : On retire l'écouteur quand on quitte la page (pour ne pas faire bugger le reste du site)
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleKey);
+});
 
-const openVideo = (index) => {
-  selectedVideoIndex.value = index;
-};
-
-const closeVideo = () => {
-  selectedVideoIndex.value = null;
-};
-
-const nextVideo = () => {
-  if (selectedVideoIndex.value !== null) {
-    selectedVideoIndex.value = (selectedVideoIndex.value + 1) % videos.length;
-  }
-};
-
-const prevVideo = () => {
-  if (selectedVideoIndex.value !== null) {
-    selectedVideoIndex.value = (selectedVideoIndex.value - 1 + videos.length) % videos.length;
-  }
-};
-
-const goToVideo = (index) => {
-  selectedVideoIndex.value = index;
-};
 </script>
 
 
