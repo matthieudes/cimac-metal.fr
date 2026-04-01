@@ -4,15 +4,14 @@ import imgMif from '@/assets/AccueilAssets/madeInFrance.webp'
 </script>
 <template>
     <section class="video">
-        <video 
-        autoplay
-        loop
-        muted
-        playsinline
-        class="videolaser">
-            <source src="@/assets/AccueilAssets/videoAccueil2.mp4" type="video/mp4" />
-            Votre navigateur ne supporte pas la vidéo.
-        </video>
+        <iframe src="https://player.vimeo.com/video/1179175347?autoplay=1&loop=1&muted=1&controls=0&autopause=0&title=0&byline=0&portrait=0"
+        frameborder="0" allow="autoplay;
+        fullscreen;
+        picture-in-picture" 
+        allowfullscreen title="CIMAC - Découpe laser 3D à Saint-Chamond" 
+        class="videolaser"
+        referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
               
         <h1 class="video-title">CIMAC : <br>Découpe laser 3D à Saint-Chamond</h1>
 
@@ -33,7 +32,7 @@ import imgMif from '@/assets/AccueilAssets/madeInFrance.webp'
         </div>
 
         <div class="mif-image">
-          <img :src="imgMif" alt="Made in France" />
+          <img :src="imgMif" loading="lazy" alt="Made in France" />
         </div>
       </div>
     </section>
@@ -48,9 +47,35 @@ import imgMif from '@/assets/AccueilAssets/madeInFrance.webp'
   height: 55vh;
   overflow: hidden;
 }
+.videolaser {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  min-height: 100%;
+  min-width: 177.77vh; 
+  transform: translate(-50%, -50%);
+  pointer-events: none; 
+  z-index: 0;
+}
+.video::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 1;
+}
+
 .video-title {
   position: absolute;
-  bottom: 15%; 
+  bottom: 10%; 
   left: 5vw;
   z-index: 2;
   color: #ffffff;
@@ -89,30 +114,9 @@ import imgMif from '@/assets/AccueilAssets/madeInFrance.webp'
   }
 }
 
-.videolaser {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  width: 100%;
-  height: 140%;
-  object-fit: cover;
-  object-position: 50% 25%;
-  transform: translate(-50%, -50%);
-}
 
-.video::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  height: 90%;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.2) 30%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
-  z-index: 1;
-}
+
+
 .made-in-france {
   padding: 5rem 5vw;
   margin-top: 6rem;
@@ -161,7 +165,7 @@ import imgMif from '@/assets/AccueilAssets/madeInFrance.webp'
 
 @media (max-width: 900px) {
   .video-title{
-    bottom: 20%;
+    bottom: 10%;
   }
   .actions-buttons {
     gap: 2rem; 
@@ -178,7 +182,7 @@ import imgMif from '@/assets/AccueilAssets/madeInFrance.webp'
     height: 70vh;
   }
   .video::before {
-    height: 84%;
+    height: 100%;
   }
 
   .video-title {
