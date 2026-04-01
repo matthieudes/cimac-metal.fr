@@ -39,31 +39,25 @@ onMounted(() => {
       <img src="@/assets/ContactAssets/devanture2.webp" alt="SARL Cimac - Atelier chaudronnerie" />
     </section>
 
-    <!-- CONTENU PRINCIPAL -->
     <section class="contact-content">
       <div class="layout-grid">
 
-        <!-- COLONNE GAUCHE : BLOC BLEU -->
         <div class="blue-card">
           <p class="subtitle">Contactez nous !</p>
           <h1>Faites votre<br>demande de devis<br>dès à présent !</h1>
           <p class="description">Nous répondrons dès que possible</p>
         </div>
 
-        <!-- COLONNE DROITE : ADRESSE ET CONTACT -->
         <div class="info-columns">
           
-          <!-- CARD 1 : Adresse et horaires -->
           <div class="card">
             <h2 class="card-title">
               <span class="vertical-line"></span> Adresse et horaires
             </h2>
             
             <div class="card-item">
-              <!-- SVG Icône Position -->
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               
-              <!-- Lien Google Maps avec effet soulignement bleu -->
               <a href="https://maps.google.com/?q=Cimac+11+Rue+Michel+Rondet,+42400+Saint-Chamond"
                  target="_blank"
                  rel="noopener noreferrer"
@@ -73,7 +67,6 @@ onMounted(() => {
             </div>
 
             <div class="card-item align-top">
-              <!-- SVG Icône Horloge -->
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
               <div>
                 <p>Du Lundi au jeudi : 7h - 16h</p>
@@ -82,20 +75,17 @@ onMounted(() => {
             </div>
           </div>
 
-          <!-- CARD 2 : Contact -->
           <div class="card">
             <h2 class="card-title">
               <span class="vertical-line"></span> Contact
             </h2>
 
             <div class="card-item">
-              <!-- SVG Icône Téléphone -->
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
               <a href="tel:0477299441" class="hover-link">04 77 29 94 41</a>
             </div>
 
             <div class="card-item">
-              <!-- SVG Icône Email -->
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               <a href="mailto:contact@cimac-metal.fr" class="hover-link">contact@cimac-metal.fr</a>
             </div>

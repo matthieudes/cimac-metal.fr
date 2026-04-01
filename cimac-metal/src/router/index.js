@@ -58,7 +58,6 @@ const router = createRouter({
     if (savedPosition) {
       return savedPosition;
     } 
-    // Sinon, pour tout nouveau clic sur un lien, on remonte tout en haut !
     else {
       return { top: 0 }; // Utilisez { x: 0, y: 0 } si vous êtes sur Vue 2
     }

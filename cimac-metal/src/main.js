@@ -4,7 +4,10 @@ import router from './router'
 import '@/assets/main.css'
 const app = createApp(App)
 
-
+// Désactive la restauration automatique du scroll par le navigateur au rafraîchissement
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
 // permet de modifier la méta description en fonction de la page visitée
 router.afterEach((to) => {
     const description = document.querySelector('meta[name="description"]');
@@ -15,6 +18,7 @@ router.afterEach((to) => {
         description.setAttribute('content', to.meta.description);
     }
 })
+
 
 app.use(router)
 
