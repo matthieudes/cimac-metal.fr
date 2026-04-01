@@ -8,10 +8,10 @@ import MediaModal from '@/components/GalleryComponents/MediaModal.vue';
 const selectedIndex = ref(null);
 const currentGallery = ref('photos'); 
 
-const imagesGlob = import.meta.glob('@/assets/galerieAssets/*.{png,jpg,jpeg,webp}', { eager: true });
+const imagesGlob = import.meta.glob('@/assets/GalerieAssets/*.{png,jpg,jpeg,webp}', { eager: true });
 const images = Object.values(imagesGlob).map(module => module.default);
 
-const videosGlob = import.meta.glob('@/assets/Videos/*.{mp4,webm,mov}', { eager: true });
+const videosGlob = import.meta.glob('@/assets/videos/*.{mp4,webm,mov}', { eager: true });
 const videos = Object.values(videosGlob).map(module => module.default);
 
 // 4. LISTE ACTIVE (La "magie" qui bascule entre photos et vidéos)
