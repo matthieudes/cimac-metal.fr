@@ -4,7 +4,7 @@ import imgDecoupeLaser from '@/assets/AccueilAssets/laserminiature.png'
 import devisIcon from '@/assets/AccueilAssets/devisbouton.png'
 import laserDessin from '@/assets/AccueilAssets/laserbouton.png'
 import pieceLaser from '@/assets/GalerieAssets/3-pieceLaser.jpg'
-import planLaser from '@/assets/LaserAssets/planlaser.webp'
+import planLaser from '@/assets/LaserAssets/PlanLaser.webp'
 import { ref, computed } from 'vue';
 import ActionPanel from '@/components/HomeComponents/PanneauAction.vue';
 
