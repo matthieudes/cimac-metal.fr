@@ -69,7 +69,7 @@ import SpecTable from '@/components/LaserComponent/SpecTable.vue';
 
 <style scoped>
 .laser-header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('@/assets/LaserAssets/DessinDelaser.svg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('@/assets/LaserAssets/DessinDeLaser.svg');
   height: 400px;
   background-size: cover;
   background-position: center;
