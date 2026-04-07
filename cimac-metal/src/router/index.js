@@ -44,11 +44,13 @@ const routes = [
     component: () => import('@/pages/MentionsLegales.vue'),
     meta: {
       title: 'Mentions Légales | SARL Cimac',
+      robots: 'noindex',
       description: 'Mentions légales de SARL Cimac à Saint-Chamond 42400, entreprise de chaudronnerie et métallerie.'
     }
   },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('@/pages/PageErreur.vue') }
 ]
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
@@ -63,6 +65,7 @@ const router = createRouter({
     }
   }
 })
+
 router.beforeEach((to, from, next) => {
   if (to.meta.title) {
     document.title = to.meta.title;
@@ -77,12 +80,32 @@ router.beforeEach((to, from, next) => {
       metaDescription.name = 'description';
       document.head.appendChild(metaDescription);
     }
-    
     // On met à jour le contenu avec celui de votre route
     metaDescription.content = to.meta.description;
   }
 
-  next(); // Très important pour autoriser le changement de page !
+  // 2. On gère le noindex
+  let robotsMeta = document.querySelector('meta[name="robots"]');
+
+  if (to.meta.robots === 'noindex') {
+    if (!robotsMeta) {
+      robotsMeta = document.createElement('meta');
+
+      robotsMeta.name = 'robots';
+
+      document.head.appendChild(robotsMeta);
+      console.log('Meta robots créé');
+    }
+    robotsMeta.content = 'noindex';
+
+  } else if (robotsMeta){
+
+    robotsMeta.remove();
+
+  }
+
+  next();
+
 });
 
 export default router

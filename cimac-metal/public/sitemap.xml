@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.cimac-metal.fr/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.cimac-metal.fr/laser</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cimac-metal.fr/galerie</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cimac-metal.fr/contact</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>
