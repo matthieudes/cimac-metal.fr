@@ -26,7 +26,7 @@ import imgMif from '@/assets/AccueilAssets/madeInFrance.webp'
       <div class="mif-container">
         <div class="mif-text">
           <h3>
-            Choisir Cimac pour vos découpes laser de tube ou autre type de profil, c’est choisir une PME chaudronnerie/métallerie française.
+            En choisissant Cimac pour vos découpes laser 3D de tube ou autre type de profil, vous choisissez une PME chaudronnerie/métallerie française.
           </h3>
         </div>
 
