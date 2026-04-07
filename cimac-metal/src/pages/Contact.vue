@@ -30,6 +30,16 @@ onMounted(() => {
   });
   document.head.appendChild(script);
 });
+
+const emailCrypte = "Y29udGFjdEBjaW1hYy1tZXRhbC5mcg";
+
+// Permet de décrypter l'email lors du clic 
+const envoyerEmail = () => {
+  // atob() décrypte le Base64 au moment du clic
+  const emailEnClair = atob(emailCrypte);
+  // Ouvre la messagerie
+  window.location.href = `mailto:${emailEnClair}`;
+};
 </script>
 
 <template>
@@ -87,7 +97,12 @@ onMounted(() => {
 
             <div class="card-item">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              <a href="mailto:contact@cimac-metal.fr" class="hover-link">contact@cimac-metal.fr</a>
+              <span 
+                @click="envoyerEmail" 
+                class="hover-link"
+              >
+                Cliquez ici pour nous envoyer un e-mail
+              </span>
             </div>
           </div>
 
@@ -201,6 +216,13 @@ onMounted(() => {
   margin-right: 15px;
   color: #0056b3;
   flex-shrink: 0;
+}
+
+.card-item span {
+  color: #555;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .hover-link {

@@ -1,3 +1,16 @@
+<script setup>
+import { ref } from 'vue';
+
+const estRevele = ref(false);
+const emailCache = "Y29udGFjdEBjaW1hYy1tZXRhbC5mcg";
+const emailDecrypte = ref('');
+
+const revelerEmailRgpd = () => {
+  emailDecrypte.value = atob(emailCache);
+  estRevele.value = true;
+}
+</script>
+
 <template>
   <div class="legal-page">
     <div class="legal-container">
@@ -16,7 +29,11 @@
           <li><strong>Immatriculation au registre national des entreprises (RNE) :</strong> RM 429 313 042 422</li>
           <li><strong>TVA Intracommunautaire :</strong> FR 07 429 313 042</li>
           <li><strong>Téléphone :</strong> 04 77 29 94 41</li>
-          <li><strong>Email :</strong> contact@cimac-metal.fr</li>
+          <li>
+            <strong>Email : </strong>
+            <span v-if="!estRevele" class="email-cache-li" @click="revelerEmailRgpd" style="font-weight: bold;"> Voir l'adresse e-mail</span>
+            <span v-else class="email-li"> {{ emailDecrypte }} </span>
+          </li>
         </ul>
 
         <h3>Assurance professionnelle et Garantie décennale</h3>
@@ -58,7 +75,15 @@
           Si vous décidez de nous contacter directement par email ou par téléphone via les coordonnées indiquées sur la page Contact, vos informations (adresse email, numéro de téléphone, nom et le contenu de votre message) seront uniquement utilisées par <strong>Cimac</strong> dans le seul but de traiter votre demande et d'y répondre. 
         </p>
         <p>
-          Ces données ne sont jamais vendues, cédées à des tiers, ni utilisées à des fins de prospection commerciale non sollicitée. Conformément à la réglementation, vous disposez d'un droit d'accès, de rectification et d'effacement de ces données en nous contactant directement à <strong>contact@cimac-metal.fr</strong>.
+          Ces données ne sont jamais vendues, cédées à des tiers, ni utilisées à des fins de prospection commerciale non sollicitée. Conformément à la réglementation, vous disposez d'un droit d'accès, de rectification et d'effacement de ces données en nous contactant directement à 
+          <strong v-if="!estRevele">
+            <span class="email-cache" @click="revelerEmailRgpd">Voir l'adresse e-mail</span>
+          </strong>
+
+          <!-- Vrai lien affiché après le clic -->
+          <strong v-else>
+            <a :href="'mailto:' + emailDecrypte" class="email-link">{{ emailDecrypte }}</a>
+          </strong>.
         </p>
       </section>
 
@@ -76,13 +101,8 @@
   </div>
 </template>
 
-<script setup>
-// Pas besoin de logique complexe ici, c'est une page statique
-</script>
-
 <style scoped>
 .legal-page {
-  /* On met un fond léger pour détacher le texte */
   background-color: #f9fafb;
   min-height: 100vh;
   padding: 60px 20px;
@@ -113,7 +133,7 @@ h1 {
 
 h2 {
   font-size: 1.4rem;
-  color: #2c3e50; /* Vous pouvez mettre la couleur de votre marque ici */
+  color: #2c3e50;
   margin-top: 35px;
   margin-bottom: 15px;
   border-bottom: 2px solid #eee;
@@ -135,7 +155,62 @@ li {
   line-height: 1.5;
 }
 
-/* Responsif pour les téléphones */
+.email-cache-li {
+  display: inline-block;
+  background-color: #f0f0f0;
+  color: black;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.email-cache {
+  display: inline-block;
+  position: relative;
+  background-color: #f0f0f0;
+  color: #f0f0f0;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.email-cache:hover {
+  background-color: #e0e0e0;
+}
+
+.email-link {
+  color: #0056b3;  
+  text-decoration: none; 
+  border-bottom: 2px solid transparent;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.email-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px; 
+  bottom: -2px;
+  left: 0;
+  background-color: #0056b3;
+  transition: width 0.5s ease; 
+}
+.email-link:hover {
+  color: #0056b3;
+}
+
+.email-link:hover::after {
+  width: 100%;
+}
+
 @media (max-width: 600px) {
   .legal-container {
     padding: 20px;
