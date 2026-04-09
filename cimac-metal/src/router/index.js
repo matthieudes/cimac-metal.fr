@@ -84,25 +84,25 @@ router.beforeEach((to, from, next) => {
     metaDescription.content = to.meta.description;
   }
 
-  // 2. On gère le noindex
-  let robotsMeta = document.querySelector('meta[name="robots"]');
+  // // 2. On gère le noindex
+  // let robotsMeta = document.querySelector('meta[name="robots"]');
 
-  if (to.meta.robots === 'noindex') {
-    if (!robotsMeta) {
-      robotsMeta = document.createElement('meta');
+  // if (to.meta.robots === 'noindex') {
+  //   if (!robotsMeta) {
+  //     robotsMeta = document.createElement('meta');
 
-      robotsMeta.name = 'robots';
+  //     robotsMeta.name = 'robots';
 
-      document.head.appendChild(robotsMeta);
-      console.log('Meta robots créé');
-    }
-    robotsMeta.content = 'noindex';
+  //     document.head.appendChild(robotsMeta);
+  //     console.log('Meta robots créé');
+  //   }
+  //   robotsMeta.content = 'noindex';
 
-  } else if (robotsMeta){
+  // } else if (robotsMeta){
 
-    robotsMeta.remove();
+  //   robotsMeta.remove();
 
-  }
+  // }
 
   next();
 
