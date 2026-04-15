@@ -7,8 +7,8 @@ const routes = [
     name: 'Accueil',
     component: () => import('@/pages/Accueil.vue'),
     meta: {
-      title: 'SARL Cimac | Chaudronnerie et Métallerie à Saint-Chamond',
-      description: 'SARL Cimac, entreprise de chaudronnerie et métallerie à Saint-Chamond 42400, service de Découpe de tube au Laser 3D.'
+      title: 'SARL Cimac | Découpe Laser 3D | Chaudronnerie et Métallerie à Saint-Chamond',
+      description: 'SARL Cimac, Découpe de tube au Laser 3D, entreprise de chaudronnerie et métallerie à Saint-Chamond 42400(Loire).'
     }
   },
   {
