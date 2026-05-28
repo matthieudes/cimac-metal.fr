@@ -44,7 +44,6 @@ const routes = [
     component: () => import('@/pages/MentionsLegales.vue'),
     meta: {
       title: 'Mentions Légales | SARL Cimac',
-      robots: 'noindex',
       description: 'Mentions légales de SARL Cimac à Saint-Chamond 42400, entreprise de chaudronnerie et métallerie.'
     }
   },
@@ -84,25 +83,7 @@ router.beforeEach((to, from, next) => {
     metaDescription.content = to.meta.description;
   }
 
-  // // 2. On gère le noindex
-  // let robotsMeta = document.querySelector('meta[name="robots"]');
 
-  // if (to.meta.robots === 'noindex') {
-  //   if (!robotsMeta) {
-  //     robotsMeta = document.createElement('meta');
-
-  //     robotsMeta.name = 'robots';
-
-  //     document.head.appendChild(robotsMeta);
-  //     console.log('Meta robots créé');
-  //   }
-  //   robotsMeta.content = 'noindex';
-
-  // } else if (robotsMeta){
-
-  //   robotsMeta.remove();
-
-  // }
 
   next();
 
